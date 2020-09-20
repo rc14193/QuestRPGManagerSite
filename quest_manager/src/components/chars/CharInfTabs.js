@@ -149,7 +149,7 @@ this.setState({
                 )
     
               })}
-              <div className="withoutShadow card grey darken-3 left-align">
+              <div className="withoutShadow left-align">
                 <form style={{margin: "5px"}}>
                     <label htmlFor={"abilityName"+this.props.char.id} >Ability Name</label><br/>
                     <input type="text" style={{color: "white"}} id={"abilityName"+this.props.char.id} onChange={this.handleAbilityNameChange}></input>
@@ -169,7 +169,7 @@ this.setState({
                 )
     
             })}
-            <div className="withoutShadow card grey darken-3 left-align">
+            <div className="withoutShadow left-align">
                 <form style={{margin: "5px"}}>
                     <label htmlFor={"itemsName"+this.props.char.id} >Item Name</label><br/>
                     <input type="text" style={{color: "white"}} id={"itemsName"+this.props.char.id} onChange={this.handleItemNameChange}></input>

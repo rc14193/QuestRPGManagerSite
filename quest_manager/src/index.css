@@ -98,6 +98,7 @@ img {
   text-align: center !important;
   text-decoration: none;
   max-width: 500px !important;
+  margin-top: 20px;
 }
 
 .title-logo{
@@ -126,6 +127,13 @@ img {
   }
 }
 
+.itemCards{
+  width: 100px;
+  padding: 10px;
+  margin: 15px;
+  border-radius: 5px;
+}
+
 .tabs .tab a{
   color:#fff !important;
 } /*Black color to the text*/
@@ -138,11 +146,12 @@ img {
 .tabs .tab a.active {
   background-color:#212121 !important;
   color:#fff !important;
+  margin-bottom: 20px;
 } /*Background and text color when a tab is active*/
 
 .tabs .indicator {
   background-color:#424242  !important;
-  margin-bottom: 10px;
+
 } /*Color of underline*/
 
 .charTitle{

@@ -31,8 +31,8 @@ class CharValueTooled extends Component {
     else{
 
       return(
-        <div className="attributeVals row grey darken-3 withoutShadow">
-         <span className={descPresent+" center-align"}  data-position="right" data-tooltip={this.props.item.Description}>{this.props.item.Name}</span>
+        <div className="attributeVals row withoutShadow">
+         <span className={descPresent+" center-align grey darken-3 itemCards"}  data-position="right" data-tooltip={this.props.item.Description}>{this.props.item.Name}</span>
         </div>
     )
 
