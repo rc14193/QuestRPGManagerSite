@@ -54,6 +54,7 @@ state = {editMode: false, quest_title: ""}
     id = this.props.match.params.id;
 
     render(){
+    //console.log(this.props)
     if(!this.props.auth.uid){
             return <Redirect to='/' />
     }
@@ -150,7 +151,8 @@ const mapStateToProps = (state,ownProps) => {
     const id = ownProps.match.params.id
     const quests = state.firestore.data.quests
     const quest = quests ? quests[id] : null
-    //console.log(state)
+    console.log(state)
+    //console.log(ownProps)
     return {
         quest: quest,
         auth: state.firebase.auth,
@@ -167,8 +169,9 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 export default compose(
-    connect(mapStateToProps, mapDispatchToProps),
-    firestoreConnect([
-        {collection: 'quests'}
-    ])
+    connect(mapStateToProps, mapDispatchToProps),firestoreConnect((state) => { 
+        return [
+        { collection: 'characters', where: [['inQuest', '==', state.id]] },
+        { type: 'child_changed', collection: 'quests', doc: state.id}
+    ]})
 )(QuestDetails)

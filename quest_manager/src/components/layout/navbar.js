@@ -24,17 +24,27 @@ class Navbar extends React.Component{
     render(){
         const { auth } = this.props;
 
-
         if(auth.isLoaded && auth.uid){
             return(
             <div>
                 <nav className="nav-wrapper grey darken-4" style={{padding: "3px"}}>
-                    <div>
-                        <Link to='/' className="brand-logo center"><img src='/logo512.png' alt='site logo by title' /><span>  Quest RPG Manager</span></Link>
-                        <NavLink to='/dashboard' className='right profile_btn btn btn-floating valign-wrapper'><img src={(auth.photoURL)} alt='google profile'></img></NavLink>
-                        <a href='#!' className='sidenav-trigger show-on-large white-text' data-target='side-links'>
-                            <i className="material-icons">menu</i>
-                        </a>
+                    <div className="row navbar-icon">
+                        <div className='right col navbar-icon'>
+                            <NavLink to='/dashboard' className='right profile_btn btn btn-floating navbar-icon'>
+                                <img className="navbar-icon" src={auth.photoURL} alt='site logo'></img>
+                            </NavLink> 
+                        </div>
+                        <div className="left col navbar-icon">
+                            <a href='#!' className='sidenav-trigger show-on-large white-text' data-target='side-links'>
+                                <i className="material-icons">menu</i>
+                            </a> 
+                        </div>
+                        <div className="center col offset-l4 offset-m3">
+                            <Link to='/'>
+                                    <img className="title-logo" src='/logo512.png' alt='site logo by title' />
+                                    <span className="title-text">  Quest RPG Manager</span>
+                            </Link>
+                        </div>
                     </div>
                 </nav>
 
@@ -54,12 +64,23 @@ class Navbar extends React.Component{
 
                 <div>
                 <nav className="nav-wrapper grey darken-4" style={{padding: "3px"}}>
-                    <div>
-                        <Link to='/' className="brand-logo center"><img src='/logo512.png' alt='site logo by title' /><span>  Quest RPG Manager</span></Link>
-                        <NavLink to='/dashboard' className='right profile_btn btn btn-floating'><img src='/logo512.png' alt='site logo'></img></NavLink>
-                        <a href='#!' className='sidenav-trigger show-on-large white-text' data-target='side-links'>
-                            <i className="material-icons">menu</i>
-                        </a>
+                    <div className="row">
+                        <div className='right col navbar-icon'>
+                            <NavLink to='/dashboard' className='right profile_btn btn btn-floating'>
+                                <img src='/logo512.png' alt='site logo'></img>
+                            </NavLink> 
+                        </div>
+                        <div className="left col navbar-icon">
+                            <a href='#!' className='sidenav-trigger show-on-large white-text' data-target='side-links'>
+                                <i className="material-icons">menu</i>
+                            </a> 
+                        </div>
+                        <div className="center col offset-l4 offset-m3">
+                            <Link to='/'>
+                                    <img className="title-logo" src='/logo512.png' alt='site logo by title' />
+                                    <span className="title-text">  Quest RPG Manager</span>
+                            </Link>
+                        </div>
                     </div>
                 </nav>
 

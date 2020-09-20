@@ -33,7 +33,7 @@ class Landing extends Component{
                                 &nbsp;<a href="https://www.adventure.game/" target="_blank" rel="noopener noreferrer">
                                     <button className="btn grey darken-4 z-depth-0">Quest RPG System</button>
                                     &nbsp;</a>&nbsp;
-                                It provides the same realtime functionality where players and GMs can handle their adventures in real time. As with PlayQuest,
+                                It provides the same functionality where players and GMs can handle their adventures in real time. As with PlayQuest,
                                 abilities and inventory items are not provided by default. Quest is a great RPG system and I would encourage people to 
                                 &nbsp;<a href="https://www.adventure.game/store" target="_blank" rel="noopener noreferrer">
                                     <button className="btn grey darken-4 z-depth-0">Buy Quest</button> 
@@ -45,7 +45,8 @@ class Landing extends Component{
                                 &nbsp;<a href="https://github.com/evanmdort/QuestRPGManagerSite" target="_blank" rel="noopener noreferrer">
                                     <button className="btn grey darken-4 z-depth-0">github</button>
                                 </a>&nbsp;
-                                so updates, changes, and improvements can be made by anyone wanting to make the site better.
+                                so updates, changes, and improvements can be made by anyone wanting to make the site better. This site was built using React
+                                for the dynamic display, Redux for statemangement, and Firebase for hosting and the database backend.
                             </p>
                             <h3>Contact</h3>
                             <p className="landing-text">

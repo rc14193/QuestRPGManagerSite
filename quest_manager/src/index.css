@@ -83,17 +83,48 @@ img {
   padding: 5px !important;
   padding-bottom: 20px !important;
   height: auto;
+  width: 390px !important;
 }
 
 .charCol{
   height: auto;
 }
 
+.material-tooltip {
+  width: 300px !important;
+}
+
 .attributeVals{
   text-align: center !important;
   text-decoration: none;
+  max-width: 500px !important;
 }
 
+.title-logo{
+  width: 2.5vw;
+  height: 2.5vw;
+}
+
+.title-text{
+  font-size: 2.5vw;
+}
+
+.navbar-icons{
+  margin:0;
+  padding:0 !important;
+  width: 3.5vw !important;
+  height: 3.5vw !important;
+}
+
+@media only screen and (max-width: 800px) {
+  .title-text{
+    font-size: 4.5vw;
+  }
+  .title-logo{
+    width: 2.5vw;
+    height: 2.5vw;
+  }
+}
 
 .tabs .tab a{
   color:#fff !important;
@@ -111,6 +142,7 @@ img {
 
 .tabs .indicator {
   background-color:#424242  !important;
+  margin-bottom: 10px;
 } /*Color of underline*/
 
 .charTitle{
@@ -135,6 +167,10 @@ img {
 
 .sidenav{
   color: white !important;
+}
+
+.sidenav-trigger{
+  margin: 0 !important;
 }
 
 .incrementros{

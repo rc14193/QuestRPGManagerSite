@@ -1,6 +1,5 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {firestoreConnect} from 'react-redux-firebase'
 import {compose} from 'redux'
 import {updateCharName} from '../../store/actions/updateCharName'
 import { removeCharacter } from '../../store/actions/removeCharacter'
@@ -129,8 +128,6 @@ const mapStateToProps = (state,ownProps) => {
 
 export default compose(
     connect(mapStateToProps, mapDispatchToProps),
-    firestoreConnect([
-    ])
 )(CharDetails)
 
 /*                      <div className="">

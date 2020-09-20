@@ -1,7 +1,6 @@
 import React from 'react'
 import CharDetails from './CharDetails'
 import CharInfTabs from './CharInfTabs'
-import {firestoreConnect} from 'react-redux-firebase'
 import { connect } from 'react-redux'
 import { compose } from 'redux'
 
@@ -18,7 +17,7 @@ render(){
         <div className="project-list section row">
 
             {characters && characters.map(chars =>{
-                console.log(chars.role)
+                //console.log(chars.role)
                 var boxStyle=''
                 switch(chars.role){
                     case 'Fighter':
@@ -48,8 +47,8 @@ render(){
                     default:
                         boxStyle=''
                 }
-                console.log('the box style is')
-                console.log(boxStyle)
+                //console.log('the box style is')
+                //console.log(boxStyle)
                     return(
 
                             <div key={chars.id} className={boxStyle+" col card grey darken-4 charCards charCol"}>
@@ -89,7 +88,4 @@ const mapStateToProps = (state) => {
 
 export default compose(
     connect(mapStateToProps),
-firestoreConnect((state) => { 
-    return [
-    { collection: 'characters', where: [['inQuest', '==', state.id]] }
-]}))(CharsList)
+)(CharsList)

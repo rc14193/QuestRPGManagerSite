@@ -36,14 +36,14 @@ class CreateQuest extends Component {
         
         return(
            <div className="container">
-               <form onSubmit={this.handleSubmit} className="white">
-                   <h5 className="grey-text text-darken-3">Create A Quest</h5>
+               <form onSubmit={this.handleSubmit} className="grey darken-4">
+                   <h5 className="white-text">Create A Quest</h5>
                    <div className="input-field">
                     <label htmlFor="title">Title</label>
-                    <input type="text" id="quest_title" onChange={this.handleChange}/>
+                    <input type="text" id="quest_title" className="white-text" onChange={this.handleChange}/>
                    </div>
                    <div className="input-field">
-                       <button className="btn pink lighten-1 z-depth-0">Create Quest</button>
+                       <button className="btn grey darken-3 lighten-1 z-depth-0">Create Quest</button>
                    </div>
                </form>
            </div> 
