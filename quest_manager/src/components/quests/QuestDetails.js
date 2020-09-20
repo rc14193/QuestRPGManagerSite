@@ -151,7 +151,7 @@ const mapStateToProps = (state,ownProps) => {
     const id = ownProps.match.params.id
     const quests = state.firestore.data.quests
     const quest = quests ? quests[id] : null
-    console.log(state)
+    //console.log(state)
     //console.log(ownProps)
     return {
         quest: quest,

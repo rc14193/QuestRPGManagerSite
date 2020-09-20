@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 
 class Credits extends Component{
     render(){
-        console.log(this.props)
+        //console.log(this.props)
         return(
             <div className="dashboard container">
                 <h1>Credits</h1>
