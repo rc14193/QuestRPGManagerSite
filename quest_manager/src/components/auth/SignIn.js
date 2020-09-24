@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { signInEmailAndPass } from '../../store/actions/authActions'
+import { Link } from 'react-router-dom'
 import GoogleButton from 'react-google-button'
 import {Redirect} from 'react-router-dom'
+import {signIn} from '../../store/actions/authActions'
 
 class SignIn extends Component {
     
@@ -15,6 +17,12 @@ class SignIn extends Component {
         this.setState({
             [e.target.id]: e.target.value
         })
+    }
+
+    handleClick = (e) => {
+        e.preventDefault();
+        //console.log(this.state)
+        this.props.signIn()
     }
 
     handleSubmit = (e) => {
@@ -32,6 +40,7 @@ class SignIn extends Component {
         return(
            <div className="container">
                <form onSubmit={this.handleSubmit} className="grey darken-4">
+               <h5>Sign In</h5>
                    <div className="input-field">
                     <label htmlFor="email">Email</label>
                     <input type="email" id="email" className="white-text" onChange={this.handleChange}/>
@@ -42,6 +51,8 @@ class SignIn extends Component {
                    </div>
                    <div className="input-field">
                        <button className="btn grey darken-3 z-depth-0">Log in</button>
+                       &nbsp;<Link to='/signup'>Create Account</Link>&nbsp;
+                       &nbsp;<Link to='/recovery'>Reset Password</Link>&nbsp;
                    <div className="text-red">{ authError ? <p>{authError}</p> : null}</div>
                    </div>
                </form>
@@ -52,9 +63,11 @@ class SignIn extends Component {
     }
 }
 
+
 const mapDispatchToProps = (dispatch) => {
     return {
-        signInEmailAndPass : (userInf) => dispatch(signInEmailAndPass(userInf))
+        signInEmailAndPass : (userInf) => dispatch(signInEmailAndPass(userInf)),
+        signIn: () => dispatch(signIn())
     }
 }
 

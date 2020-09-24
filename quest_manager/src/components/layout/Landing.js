@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import GoogleButton from 'react-google-button'
 import { connect } from 'react-redux'
 import { signIn } from '../../store/actions/authActions'
+import {Link} from 'react-router-dom'
 
 class Landing extends Component{
 
@@ -19,7 +19,13 @@ class Landing extends Component{
     
 
     render(){
-        const usrSignIn = this.props.auth.uid ? <a href='/dashboard'><button className="btn grey darken-4 lighten-1 waves-effect waves-light z-depth-0">Your Quests</button></a> : <GoogleButton onClick={this.handleClick}/>;
+        const usrSignIn = this.props.auth.uid ? 
+        <a href='/dashboard'><button className="btn grey darken-4 lighten-1 waves-effect waves-light z-depth-0">Your Quests</button></a> : 
+        <div className="row">
+            <div><Link to='/signin'><button className="btn grey darken-4 lighten-1 waves-effect waves-light z-depth-0">Log In</button></Link></div>
+            <p>or</p>
+            <div><Link to='/signup'><button className="btn grey darken-4 lighten-1 waves-effect waves-light z-depth-0">Create Account</button></Link></div> 
+        </div>;
         return(
             <div className="dashboard container">
                             <h1 className=" center-align">Welcome to the Quest RPG Manager</h1>

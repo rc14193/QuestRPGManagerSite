@@ -2,10 +2,9 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { signUp } from '../../store/actions/authActions'
 import { signIn } from '../../store/actions/authActions'
-import GoogleButton from 'react-google-button'
 import {Redirect} from 'react-router-dom'
 
-class SignIn extends Component {
+class PasswordReset extends Component {
     
     state ={
         email: '',
@@ -20,15 +19,10 @@ class SignIn extends Component {
         })
     }
 
-    handleClick = (e) => {
-        e.preventDefault();
-        //console.log(this.state)
-        this.props.signIn()
-    }
 
     handleSubmit = (e) => {
         e.preventDefault();
-        console.log(this.state)
+
         if(this.state.password===this.state.passwordConfirm){
             this.props.signUp(this.state)
         }
@@ -41,7 +35,8 @@ class SignIn extends Component {
     }
 
     render(){
-
+        console.log(this.state)
+        console.log(this.props)
         if(this.props.auth.uid){ 
             return <Redirect to='/dashboard' />
             }
@@ -49,7 +44,7 @@ class SignIn extends Component {
         return(
            <div className="container">
                <form onSubmit={this.handleSubmit} className="grey darken-4">
-                   <h5 className="white-text">Sign Up</h5>
+                   <h5 className="white-text">Reset Password</h5>
                    <div className="input-field">
                     <label htmlFor="email">Email</label>
                     <input type="email" id="email" className="grey darken-4 white-text" onChange={this.handleChange}/>
@@ -69,8 +64,6 @@ class SignIn extends Component {
                    <div className="red-text">{ this.state.passMatch ? <p>{this.state.passMatch}</p> : null}</div>
                </form>
 
-               <h4>Or</h4>
-               <GoogleButton onClick={this.handleClick}/>
            </div> 
         )
     }
@@ -84,10 +77,11 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 const mapStateToProps = (state) => {
+    console.log(state)
     return {
         authError: state.auth.authError,
         auth: state.firebase.auth
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(SignIn)
+export default connect(mapStateToProps, mapDispatchToProps)(PasswordReset)

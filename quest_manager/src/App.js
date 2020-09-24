@@ -9,7 +9,8 @@ import Landing from './components/layout/Landing';
 import Credits from './components/layout/Credits';
 import QuestJoin from './components/layout/QuestJoin'
 import SignUp from './components/auth/SignUp'
-
+import Recovery from './components/auth/Recovery'
+import PasswordReset from './components/auth/PasswordReset'
 
 
 function App() {
@@ -26,6 +27,8 @@ function App() {
           <Route path='/dashboard' component={Dashboard} />
           <Route path='/create' component={CreateQuest} />
           <Route path='/signup' component={SignUp} />
+          <Route path='/recovery' component={Recovery} />
+          <Route path='/passwordreset/' component={PasswordReset} />
         </Switch>
       </div>
     </BrowserRouter>
