@@ -34,7 +34,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - Implement scroll bar for long ability, inventory lists to keep max size for character card
 - implement custom password reset page
 
-##Changelog
+## Changelog
 
 ### v1.2
 - added general email and password login
