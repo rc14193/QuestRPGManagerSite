@@ -52,15 +52,15 @@ class SignIn extends Component {
                    <h5 className="white-text">Sign Up</h5>
                    <div className="input-field">
                     <label htmlFor="email">Email</label>
-                    <input type="email" id="email" className="grey darken-4 white-text" onChange={this.handleChange}/>
+                    <input type="email" id="email" className="grey darken-4 white-text" onChange={this.handleChange} required/>
                    </div>
                    <div className="input-field">
                    <label htmlFor="password">Password</label>
-                    <input type="password" id="password" className="grey darken-4 white-text" onChange={this.handleChange}/>
+                    <input type="password" id="password" className="grey darken-4 white-text" onChange={this.handleChange} required/>
                     </div>
                     <div className="input-field">
                     <label htmlFor="passwordConfirm">Confirm Password</label>
-                    <input type="password" id="passwordConfirm" className="grey darken-4 white-text" onChange={this.handleChange}/>
+                    <input type="password" id="passwordConfirm" className="grey darken-4 white-text" onChange={this.handleChange} required/>
                    </div>
                    <div className="input-field">
                        <button className="btn grey darken-3 z-depth-0">Sign Up</button>

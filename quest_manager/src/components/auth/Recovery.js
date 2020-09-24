@@ -45,7 +45,7 @@ class Recovery extends Component {
                <h5>Reset Password</h5>
                    <div className="input-field">
                     <label htmlFor="email">Email</label>
-                    <input type="email" id="email" className="white-text" onChange={this.handleChange}/>
+                    <input type="email" id="email" className="white-text" onChange={this.handleChange} required/>
                    </div>
                    <div className="input-field">
                        <button className="btn grey darken-3 z-depth-0">Request Password Reset</button>

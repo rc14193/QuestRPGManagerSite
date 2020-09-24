@@ -32,6 +32,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - Fix css issue of centering and sizing of navbar title
 - clean up redundant code pieces, improve formatting
 - Implement scroll bar for long ability, inventory lists to keep max size for character card
+- implement custom password reset page
 
 ##Changelog
 
