@@ -12,7 +12,7 @@ class Landing extends Component{
 
     handleClick = (e) => {
         e.preventDefault();
-        console.log(this.state)
+        //console.log(this.state)
         this.props.signIn()
     }
 

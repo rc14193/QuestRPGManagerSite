@@ -8,6 +8,7 @@ import CreateQuest from './components/quests/CreateQuest'
 import Landing from './components/layout/Landing';
 import Credits from './components/layout/Credits';
 import QuestJoin from './components/layout/QuestJoin'
+import SignUp from './components/auth/SignUp'
 
 
 
@@ -24,6 +25,7 @@ function App() {
           <Route path='/credits' component={Credits} />
           <Route path='/dashboard' component={Dashboard} />
           <Route path='/create' component={CreateQuest} />
+          <Route path='/signup' component={SignUp} />
         </Switch>
       </div>
     </BrowserRouter>

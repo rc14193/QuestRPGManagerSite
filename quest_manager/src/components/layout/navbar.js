@@ -31,7 +31,7 @@ class Navbar extends React.Component{
                     <div className="row navbar-icon">
                         <div className='right col navbar-icon'>
                             <NavLink to='/dashboard' className='right profile_btn btn btn-floating navbar-icon'>
-                                <img className="navbar-icon" src={auth.photoURL} alt='site logo'></img>
+                                <img className="navbar-icon" src={auth.photoURL ? auth.photoURL : '/logo512.png'} alt='site logo'></img>
                             </NavLink> 
                         </div>
                         <div className="left col navbar-icon">
@@ -86,6 +86,8 @@ class Navbar extends React.Component{
 
                 <ul id="side-links" className="sidenav grey darken-4 white-text">
                     <li><NavLink to='/' className="white-text">Home</NavLink></li>
+                    <li><NavLink to='/signin' className="white-text">Log In</NavLink></li>
+                    <li><NavLink to='/signup' className="white-text">Sign Up</NavLink></li>
                     <li><NavLink to='/credits' className="white-text">Credits</NavLink></li>
                 </ul>
         
