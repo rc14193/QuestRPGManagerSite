@@ -1,7 +1,7 @@
 
 
 
-export const signIn = () => {
+export const signInGoogle = () => {
     
     return (dispatch, getState, {getFirebase}) => {
         const firebase = getFirebase()
@@ -33,7 +33,7 @@ export const signInEmailAndPass = (userInf) => {
 
 }
 
-export const signUp = (newUser) => {
+export const signUpEmail = (newUser) => {
 
     return (dispatch,getState,{getFirebase,getFirestore}) => {
         const firebase = getFirebase();

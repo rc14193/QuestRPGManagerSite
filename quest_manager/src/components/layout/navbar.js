@@ -59,7 +59,7 @@ class Navbar extends React.Component{
 
             )
         }
-        else{
+        else if(auth.isLoaded && !auth.uid){
             return(
 
                 <div>
@@ -100,7 +100,6 @@ class Navbar extends React.Component{
 }
 
 const mapStateToProps = (state) => {
-    //console.log(state)
     return{
         auth: state.firebase.auth
     }

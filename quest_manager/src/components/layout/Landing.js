@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { signIn } from '../../store/actions/authActions'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 class Landing extends Component{
 
@@ -10,22 +9,19 @@ class Landing extends Component{
         password: ''
     }
 
-    handleClick = (e) => {
-        e.preventDefault();
-        //console.log(this.state)
-        this.props.signIn()
-    }
-
-    
-
     render(){
-        const usrSignIn = this.props.auth.uid ? 
-        <a href='/dashboard'><button className="btn grey darken-4 lighten-1 waves-effect waves-light z-depth-0">Your Quests</button></a> : 
-        <div className="row">
-            <div><Link to='/signin'><button className="btn grey darken-4 lighten-1 waves-effect waves-light z-depth-0">Log In</button></Link></div>
-            <p>or</p>
-            <div><Link to='/signup'><button className="btn grey darken-4 lighten-1 waves-effect waves-light z-depth-0">Create Account</button></Link></div> 
-        </div>;
+        var usrSignIn
+        if (this.props.auth.uid){
+            usrSignIn = <a href='/dashboard'><button className="btn grey darken-4 lighten-1 waves-effect waves-light z-depth-0">Your Quests</button></a> 
+        }
+        else if(!this.props.auth.uid){
+            usrSignIn = <div className="row">
+                            <div><Link to='/signin'><button className="btn grey darken-4 lighten-1 waves-effect waves-light z-depth-0">Log In</button></Link></div>
+                            <p>or</p>
+                            <div><Link to='/signup'><button className="btn grey darken-4 lighten-1 waves-effect waves-light z-depth-0">Create Account</button></Link></div> 
+                        </div>;
+        }
+        
         return(
             <div className="dashboard container">
                             <h1 className=" center-align">Welcome to the Quest RPG Manager</h1>
@@ -81,12 +77,6 @@ class Landing extends Component{
     }
 }
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        signIn: () => dispatch(signIn())
-    }
-}
-
 const mapStateToProps = (state) => {
     return {
         authError: state.auth.authError,
@@ -94,4 +84,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Landing)
+export default connect(mapStateToProps)(Landing)

@@ -22,6 +22,7 @@ function AuthIsLoaded({ children }) {
       return children
 }
 
+
 const store = createStore(
   rootReducer,
   compose(
@@ -42,7 +43,7 @@ const rrfProps = {
 ReactDOM.render(
   <Provider store={store}>
     <ReactReduxFirebaseProvider {...rrfProps}>
-    <AuthIsLoaded><App /></AuthIsLoaded>
+      <AuthIsLoaded><App /></AuthIsLoaded>
     </ReactReduxFirebaseProvider>
   </Provider>,
   document.getElementById("root")

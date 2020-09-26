@@ -4,14 +4,13 @@ import { connect } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 import { firestoreConnect } from 'react-redux-firebase'
 import { compose } from 'redux'
-import {Redirect} from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 
 class Dashboard extends Component{
 
     state = {
         editMode: false,
     }
-
 
     handleClick = (e) => {
 
@@ -20,16 +19,16 @@ class Dashboard extends Component{
                 editMode: true
             })
         }
-        else{
-            this.setState({
-                editMode:false
-            })
-        }
+            else{
+                this.setState({
+                    editMode:false
+                })
+            }
         }
         
     
     render(){
-        //console.log(this.props)
+
         const {quests, auth} = this.props;
 
         if(!auth.uid){ 
@@ -46,17 +45,18 @@ class Dashboard extends Component{
                           
                     </label>
                 </div>
+
                 <div className="dashboard container">
-                        <div className="col s12 m6">
-                            <div className="col s12 m5">
-                                <QuestList quests={quests} editMode={this.state.editMode}/>
-                                <NavLink to='/create'>
+                    <div className="col s12 m6">
+                        <div className="col s12 m5">
+                            <QuestList quests={quests} editMode={this.state.editMode}/>
+                            <NavLink to='/create'>
                                 <div className="waves-effect waves-light btn grey darken-4 white-text">
                                     <span>New Quest</span>
                                 </div>
-                                </NavLink>
-                            </div>
+                            </NavLink>
                         </div>
+                    </div>
                 </div>
             </div>
         )
@@ -64,7 +64,6 @@ class Dashboard extends Component{
 }
 
 const mapStateToProps = (state) => {
-    //console.log(state)
     return{
         quests: state.firestore.ordered.quests,
         auth: state.firebase.auth

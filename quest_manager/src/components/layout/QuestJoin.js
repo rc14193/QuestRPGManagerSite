@@ -1,14 +1,12 @@
 import React from 'react'
-import {connect} from 'react-redux'
-import {joinQuest} from '../../store/actions/joinQuest'
-import {Redirect} from 'react-router-dom'
+import { connect } from 'react-redux'
+import { joinQuest } from '../../store/actions/joinQuest'
+import { Redirect } from 'react-router-dom'
 
 class QuestJoin extends React.Component{
 
     componentDidMount(){
-
         this.props.joinQuest(this.props)
-
     }
 
 
@@ -24,7 +22,6 @@ class QuestJoin extends React.Component{
             </div>
         )
     }
-
 }
 
 const mapStateToProps = (state,ownProps) => {

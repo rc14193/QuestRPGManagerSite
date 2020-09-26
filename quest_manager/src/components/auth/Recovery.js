@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { signInEmailAndPass } from '../../store/actions/authActions'
 import {Redirect} from 'react-router-dom'
 import firebase from 'firebase/app'
 
@@ -30,11 +29,10 @@ class Recovery extends Component {
                 err: 'Email required'
             })
         }
-        //console.log(this.state)
-        //this.props.signInEmailAndPass(this.state)
     }
 
     render(){
+
         if(this.props.auth.uid){ 
             return <Redirect to='/dashboard' />
             }
@@ -42,24 +40,18 @@ class Recovery extends Component {
         return(
            <div className="container">
                <form onSubmit={this.handleSubmit} className="grey darken-4">
-               <h5>Reset Password</h5>
-                   <div className="input-field">
+                <p>Reset Password</p>
+                <div className="input-field">
                     <label htmlFor="email">Email</label>
                     <input type="email" id="email" className="white-text" onChange={this.handleChange} required/>
-                   </div>
-                   <div className="input-field">
-                       <button className="btn grey darken-3 z-depth-0">Request Password Reset</button>
-                   <div className="text-red">{ this.state.err ? <p>{this.state.err}</p> : null}</div>
-                   </div>
+                </div>
+                <div className="input-field">
+                    <button className="btn grey darken-3 z-depth-0">Request Password Reset</button>
+                    <div className="text-red">{ this.state.err ? <p>{this.state.err}</p> : null}</div>
+                </div>
                </form>
            </div> 
         )
-    }
-}
-
-const mapDispatchToProps = (dispatch) => {
-    return {
-        signInEmailAndPass : (userInf) => dispatch(signInEmailAndPass(userInf))
     }
 }
 
@@ -70,4 +62,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Recovery)
+export default connect(mapStateToProps)(Recovery)
