@@ -97,8 +97,10 @@ img {
 .attributeVals{
   text-align: center !important;
   text-decoration: none;
-  max-width: 500px !important;
-  margin-top: 20px;
+}
+
+.spanVals{
+  min-width: 200px !important;
 }
 
 .title-logo{
@@ -119,7 +121,7 @@ img {
 
 @media only screen and (max-width: 800px) {
   .title-text{
-    font-size: 4.5vw;
+    font-size: 3.5vw;
   }
   .title-logo{
     width: 2.5vw;
@@ -128,14 +130,16 @@ img {
 }
 
 .itemCards{
-  width: 100px;
-  padding: 10px;
-  margin: 15px;
+  padding: 5px;
+  margin: auto;
+  margin-top: 5px;
+  width: 25%;
   border-radius: 5px;
 }
 
 .tabs .tab a{
   color:#fff !important;
+  margin-bottom: 30px !important;
 } /*Black color to the text*/
 
 .tabs .tab a:hover {
@@ -146,7 +150,7 @@ img {
 .tabs .tab a.active {
   background-color:#212121 !important;
   color:#fff !important;
-  margin-bottom: 20px;
+
 } /*Background and text color when a tab is active*/
 
 .tabs .indicator {
@@ -254,4 +258,17 @@ img {
   -webkit-box-shadow: 0px 0px 18px 8px rgba(226,193,33,0.8) !important;
   -moz-box-shadow: 0px 0px 18px 8px rgba(226,193,33,0.8)!important;
   box-shadow: 0px 0px 18px 8px rgba(226,193,33,0.8)!important;
+}
+
+.dashboard{
+  padding-top: 20px !important;
+}
+
+.project-details{
+  padding-top: 10px !important;
+}
+
+.diceInfo{
+  margin-left: 5px !important;
+  margin-right: 5px !important;
 }

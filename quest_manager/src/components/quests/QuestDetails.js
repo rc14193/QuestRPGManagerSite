@@ -6,6 +6,7 @@ import {Redirect} from 'react-router-dom'
 import CharList from '../chars/CharsList'
 import {updateQuestTitle} from '../../store/actions/updateQuestTitle'
 import {createCharacter} from '../../store/actions/createCharacter'
+import RollingDiceInfo from '../layout/RollingDiceInfo'
 
 class QuestDetails extends React.Component{
 
@@ -75,7 +76,6 @@ state = {editMode: false, quest_title: ""}
                               
                         </label>
                     </div>
-
                     <div className="container section project-details">
                         <div className="card z-depth-0">
                             <div className="card content grey darken-4 quest-title">
@@ -104,7 +104,7 @@ state = {editMode: false, quest_title: ""}
         }
 
     }
-    else{
+    else if(this.state.editMode === false){
         if(this.props.quest){
             //console.log(this.props)
             return (
@@ -118,6 +118,7 @@ state = {editMode: false, quest_title: ""}
                               
                         </label>
                     </div>
+                    <RollingDiceInfo />
                     <div className="container section project-details">
                         <div className="card z-depth-0">
                             <div className="card content grey darken-4 quest-title">
