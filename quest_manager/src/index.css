@@ -272,3 +272,31 @@ img {
   margin-left: 5px !important;
   margin-right: 5px !important;
 }
+.rollItemStyle{
+  position: absolute;
+  padding: 0 !important;
+  margin: 0 !important;
+  float: left !important;
+  margin-top: -25px !important;
+}
+
+.rollRowStyle{
+  margin: 8px !important;
+  margin-bottom: 2px !important;
+  padding: 8px !important;
+}
+
+.editSwitch{
+  margin-left:55px !important;
+}
+
+@media only screen and (max-width: 800px) {
+  .rollRowStyle{
+    margin: 8px !important;
+    margin-bottom: 30px !important;
+    padding: 8px !important;
+  }
+  .editSwitch{
+    margin-left:55px !important;
+  }
+}

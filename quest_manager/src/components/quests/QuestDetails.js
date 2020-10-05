@@ -67,15 +67,7 @@ state = {editMode: false, quest_title: ""}
             //console.log(this.props)
             return (
                 <div>
-                    
-                    <div className="switch" style={{float: "right"}}>
-                        <label>
-                            Edit Mode
-                            <input type="checkbox"></input>
-                            <span className="lever" onClick={this.handleClick}></span>
-                              
-                        </label>
-                    </div>
+                    <RollingDiceInfo handleClick={this.handleClick}/>
                     <div className="container section project-details">
                         <div className="card z-depth-0">
                             <div className="card content grey darken-4 quest-title">
@@ -108,17 +100,8 @@ state = {editMode: false, quest_title: ""}
         if(this.props.quest){
             //console.log(this.props)
             return (
-                <div>
-                    
-                    <div className="switch" style={{float: "right"}}>
-                        <label>
-                            Edit Mode
-                            <input type="checkbox"></input>
-                            <span className="lever" onClick={this.handleClick}></span>
-                              
-                        </label>
-                    </div>
-                    <RollingDiceInfo />
+                <div> 
+                    <RollingDiceInfo handleClick={this.handleClick}/>
                     <div className="container section project-details">
                         <div className="card z-depth-0">
                             <div className="card content grey darken-4 quest-title">
