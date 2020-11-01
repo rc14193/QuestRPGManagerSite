@@ -50,6 +50,9 @@ class Landing extends Component{
                                 so updates, changes, and improvements can be made by anyone wanting to make the site better. This site was built using React
                                 for the dynamic display, Redux for statemangement, and Firebase for hosting and the database backend.
                             </p>
+                            <h3>Tips</h3>
+                            <p>When entering descriptions for abilites if you start the description with a number followed by a space or a digit with a right braket
+                            (e.g. 5&gt;) then it will mark that as a flag that will make the AP cost stand out.</p>
                             <h3>Contact</h3>
                             <p className="landing-text">
                             Found a horrible bug? Got a feature request? If you have website design experience,

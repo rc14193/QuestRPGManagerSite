@@ -8,6 +8,13 @@ const RollingDiceInfo = ({handleClick}) => {
     const catastrophe = "Oh no. You automatically fail, and you may suffer a severe setback."
     return(
         <div className="row rollRowStyle">
+            <div className="switch right editSwitch">
+                <label className="editSwitch">
+                Edit Mode
+                <input type="checkbox"></input>
+                <span className="lever" onClick={handleClick}></span>
+                </label>
+            </div> 
             <div className="col rollItemStyle left">
                 <ul>
                     <li className="col">Rolling the Dice:</li>
@@ -20,13 +27,6 @@ const RollingDiceInfo = ({handleClick}) => {
                     </li>
                 </ul>
             </div>
-            <div className="switch right editSwitch">
-                        <label className="editSwitch">
-                        Edit Mode
-                        <input type="checkbox"></input>
-                        <span className="lever" onClick={handleClick}></span>
-                        </label>
-                    </div> 
         </div>
 
     )

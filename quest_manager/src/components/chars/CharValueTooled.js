@@ -16,7 +16,7 @@ class CharValueTooled extends Component {
 
   handleAPMarks = (descString) => {
 
-    return descString.replace(/(^(\d+) |(\d+)(>)|(\d+):)/, '<span class="flag-marker">$2$3$5</span>')
+    return descString.replace(/(^(\d+) |(\d+)(>))/, '<span class="flag-marker">$2$3</span>')
   }
 
   render(){
@@ -25,21 +25,21 @@ class CharValueTooled extends Component {
     let description = this.handleAPMarks(this.props.item.Description)
     if(this.props.editMode){
       return(
-        <div className="attributeVals row center-align">
-          <div className={descPresent+" center-align"} data-position="right" data-tooltip={description}>
-            {this.props.item.Name}
-            <i style={{color:'red'}} className=" pointed tiny material-icons col valign-wrapper center-align" onClick={this.handleItemDel}>cancel</i>
+        <td className="attributeVals row center-align">
+          <div style={{width:"100%"}}>
+          <div className={descPresent+" center-align grey darken-3 itemCards spanVals"}  data-position="right" data-tooltip={description}>{this.props.item.Name}</div>
+          <i style={{color:'red'}} className=" pointed tiny material-icons col valign-wrapper center-align" onClick={this.handleItemDel}>cancel</i>
           </div>
-        </div>
+        </td>
     )
     }
     else if(!this.props.editMode){
       return(
-        <div className="attributeVals row withoutShadow">
+        <td className="attributeVals row withoutShadow">
           <div style={{width:"100%"}}>
           <div className={descPresent+" center-align grey darken-3 itemCards spanVals"}  data-position="right" data-tooltip={description}>{this.props.item.Name}</div>
           </div>
-        </div>
+        </td>
       )
     }
   }
@@ -52,3 +52,6 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 export default connect(null, mapDispatchToProps)(CharValueTooled);
+
+
+//
