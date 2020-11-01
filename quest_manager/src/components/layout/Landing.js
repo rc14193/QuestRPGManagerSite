@@ -51,7 +51,8 @@ class Landing extends Component{
                                 for the dynamic display, Redux for statemangement, and Firebase for hosting and the database backend.
                             </p>
                             <h3>Tips</h3>
-                            <p>When entering descriptions for abilites if you start the description with a number followed by a space or a digit with a right braket
+                            <p className="landing-text">
+                            When entering descriptions for abilites if you start the description with a number followed by a space or a digit with a right braket
                             (e.g. 5&gt;) then it will mark that as a flag that will make the AP cost stand out.</p>
                             <h3>Contact</h3>
                             <p className="landing-text">
@@ -67,7 +68,7 @@ class Landing extends Component{
                             I'm @recon14193
                             </p>
                             <h3>Credit</h3>
-                            <p>I had an immense amount of help and used numerous resources to complete this site. Please check out my 
+                            <p className="landing-text">I had an immense amount of help and used numerous resources to complete this site. Please check out my 
                             &nbsp;<a href="/credits">
                                     <button className="btn grey darken-4 l z-depth-0">Credits</button>
                                 </a>&nbsp;
