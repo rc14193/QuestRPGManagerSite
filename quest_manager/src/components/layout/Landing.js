@@ -58,7 +58,7 @@ class Landing extends Component{
                             <p className="landing-text">
                             Found a horrible bug? Got a feature request? If you have website design experience,
                             see if you can contribute to the project     &nbsp;                             
-                            <a href="https://github.com/evanmdort/QuestRPGManagerSite" target="_blank" rel="noopener noreferrer">
+                            <a href="https://github.com/rc14193/QuestRPGManagerSite" target="_blank" rel="noopener noreferrer">
                                      here.
                                 </a>&nbsp;
                             Otherwise, you can try to message me on the 

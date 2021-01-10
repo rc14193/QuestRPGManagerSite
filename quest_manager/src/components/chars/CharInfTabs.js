@@ -4,6 +4,7 @@ import "materialize-css/dist/css/materialize.min.css";
 import CharValueTooled from "./CharValueTooled";
 import {updateCharInf} from "../../store/actions/updateCharInf"
 import {connect} from 'react-redux'
+import CharInfTabsEdit from '../edit_modes/CharInfTabsEdit'
 
 class CharInfTabs extends Component {
 
@@ -12,64 +13,13 @@ class CharInfTabs extends Component {
   }
 
   componentDidUpdate(prevProps){
-    if (this.props.editMode !== prevProps.editMode){
+    if (this.props.mode !== prevProps.mode){
       M.Tabs.init(this.Tabs);
     }
   }
 
-  state={
-    Description: '',
-    Ability: '',
-    AbilityName: '',
-    ItemName: '',
-    Item: ''
-
-  }
-
-    handleChange = (e) => {
-        this.setState({
-            Description: e.target.value,
-            type: 'Description'
-        })
-    }
-
-    handleItemChange = (e) => {
-      this.setState({
-          Item: e.target.value,
-          type: 'item'
-      })
-  }
-
-  handleAbilityChange = (e) => {
-    this.setState({
-        Ability: e.target.value,
-        type: 'ability'
-    })
-}
-
-handleItemNameChange = (e) => {
-  this.setState({
-      ItemName: e.target.value,
-      type: 'item'
-  })
-}
-
-handleAbilityNameChange = (e) => {
-this.setState({
-    AbilityName: e.target.value,
-    type: 'ability'
-})
-}
-
-    handleCharDesc= (e) => {
-        e.preventDefault();
-        this.props.updateCharInf(this.props,this.state)
-    }
-
-
-
   render() {
-      if(!this.props.editMode){
+      if(!this.props.mode){
 
         return (
           <div>
@@ -85,138 +35,45 @@ this.setState({
                       <a href={'#'+this.props.char.id+'3'}>Description</a>
                   </li>
               </ul>
-<div id={this.props.char.id+'1'} className="col s12 table-container">
-              <table >
-                <tbody>
+            <div id={this.props.char.id+'1'} className="col s12 table-container">
+              <div>
                   {this.props.char.abilities && this.props.char.abilities.map((ability) => {
                     return(
-                        <tr key={ability.Name}>
-                            <CharValueTooled charID={this.props.char.id} item={ability} editMode={this.props.editMode} itemType='Ability'/>
-                        </tr>
+                        <div key={ability.Name}>
+                            <CharValueTooled charID={this.props.char.id} item={ability} {...this.props} itemType='Ability'/>
+                        </div>
                         )
                       }
                     )
                   }
-                </tbody>
-              </table>
-</div>
-<div id={this.props.char.id+'2'} className="col s12 table-container">
-              <table>
-                <tbody>
-                  {this.props.char.inventory && this.props.char.inventory.map((ability) => {
-                    return(
-                        <tr key={ability.Name}>
-                            <CharValueTooled charID={this.props.char.id} item={ability} editMode={this.props.editMode} itemType='Invetory'/>
-                        </tr>
-                        )
-                      }
-                    )
-                  }
-                </tbody>
-              </table>
               </div>
-              <div  id={this.props.char.id+'3'} className="col s12  descFormat table-container">
-              <table>
-                <tbody>
-                  <tr>
-                    <td>{this.props.char.Description}</td>
-                  </tr>
-                </tbody>
-              </table>
-              </div>
-          </div>
-        );
-      }
-
-      else if(this.props.editMode){
-        return (
-          <div>
-
-              <ul ref={Tabs => {this.Tabs = Tabs;}} id="tabs-swipe-demo"
-                className="tabs grey darken-4 white-text">
-                  <li className="tab col">
-                      <a href={'#'+this.props.char.id+'1'}>Abilities</a>
-                  </li>
-                  <li className="tab col">
-                      <a href={'#'+this.props.char.id+'2'}>Inventory</a>
-                  </li>
-                  <li className="tab col">
-                      <a href={'#'+this.props.char.id+'3'}>Description</a>
-                  </li>
-              </ul>
-    <div id={this.props.char.id+'1'} className="col s12">
-    <div className="table-container-edit">
-            <table >
-              <tbody>
-                {this.props.char.abilities && this.props.char.abilities.map((ability) => {
-                      return(
-                      <tr key={ability.Name}>
-                        <CharValueTooled charID={this.props.char.id} item={ability} editMode={this.props.editMode}  itemType='Ability'/>
-                      </tr>
-                      )
-                    }
-                  )
-                }
-              </tbody>
-            </table>
             </div>
-            <div>
-                <div className="withoutShadow left-align">
-                  <form style={{margin: "5px"}}>
-                      <label htmlFor={"abilityName"+this.props.char.id} >Ability Name</label><br/>
-                        <input type="text" style={{color: "white"}} id={"abilityName"+this.props.char.id} onChange={this.handleAbilityNameChange}></input>
-                      <label htmlFor={"ability"+this.props.char.id}>Ability Description</label><br/>
-                        <textarea className="quest-title txtFieldFormat" id={"ability"+this.props.char.id} onChange={this.handleAbilityChange}></textarea><br/>
-                      <button onClick={this.handleCharDesc}>Add Ability</button>
-                  </form>
-                </div>
-            </div>
-</div>
-<div id={this.props.char.id+'2'} className="col s12">
-<div className="table-container-edit">
-            <table>
-            <tbody>
-                {this.props.char.inventory && this.props.char.inventory.map((ability) => {
+            <div id={this.props.char.id+'2'} className="col s12 table-container">
+                <div>
+                    {this.props.char.inventory && this.props.char.inventory.map((ability) => {
                       return(
-                          <tr key={ability.Name}>
-                              <CharValueTooled charID={this.props.char.id} item={ability} editMode={this.props.editMode}  itemType='Inventory'/>
-                          </tr>
+                          <div key={ability.Name}>
+                              <CharValueTooled charID={this.props.char.id} item={ability} {...this.props.mode} itemType='Invetory'/>
+                          </div>
                           )
                         }
                       )
                     }
-                    </tbody>
-</table>
-</div>
-                <div className="withoutShadow left-align">
-                    <form style={{margin: "5px"}}>
-                        <label htmlFor={"itemsName"+this.props.char.id} >Item Name</label><br/>
-                          <input type="text" style={{color: "white"}} id={"itemsName"+this.props.char.id} onChange={this.handleItemNameChange}></input>
-                        <label htmlFor={"items"+this.props.char.id}>Item Description</label><br/>
-                          <textarea className="quest-title txtFieldFormat" id={"items"+this.props.char.id} onChange={this.handleItemChange}></textarea><br/>
-                        <button onClick={this.handleCharDesc}>Add Item</button>
-                    </form>
                 </div>
-
             </div>
-
-            <div id={this.props.char.id+'3'} className="col s12 descFormat">
-            <div className="table-container-edit">
-              <table>
-                <tbody>
-                  <tr>
-                    <td>{this.props.char.Description}</td>
-                  </tr>
-                </tbody>
-              </table>
-              </div>
-                <form>
-                    <textarea className="quest-title left-align" id={"Description "+this.props.char.id} onChange={this.handleChange}></textarea>
-                    <button onClick={this.handleCharDesc}>Update Description</button>
-                </form>
+            <div  id={this.props.char.id+'3'} className="col s12  descFormat table-container">
+                  <div className="row">
+                      {this.props.char.Description}
+                  </div>
             </div>
           </div>
         );
+      }
+
+      else if(this.props.mode){
+          return(
+            <CharInfTabsEdit {...this.props}/>
+          )
       } 
   }
 }
@@ -228,3 +85,5 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 export default connect(null, mapDispatchToProps)(CharInfTabs);
+
+//<CharInfTabsEdit />

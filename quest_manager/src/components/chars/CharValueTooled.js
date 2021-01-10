@@ -20,26 +20,25 @@ class CharValueTooled extends Component {
   }
 
   render(){
-
     var descPresent = (this.props.item.Description) ? "tooltipped" : ""
     let description = this.handleAPMarks(this.props.item.Description)
-    if(this.props.editMode){
+    if(this.props.mode){
       return(
-        <td className="attributeVals row center-align">
+        <div className="attributeVals row center-align">
           <div style={{width:"100%"}}>
           <div className={descPresent+" center-align grey darken-3 itemCards spanVals"}  data-position="right" data-tooltip={description}>{this.props.item.Name}</div>
           <i style={{color:'red'}} className=" pointed tiny material-icons col valign-wrapper center-align" onClick={this.handleItemDel}>cancel</i>
           </div>
-        </td>
+        </div>
     )
     }
-    else if(!this.props.editMode){
+    else if(!this.props.mode){
       return(
-        <td className="attributeVals row withoutShadow">
+        <div className="attributeVals row withoutShadow">
           <div style={{width:"100%"}}>
           <div className={descPresent+" center-align grey darken-3 itemCards spanVals"}  data-position="right" data-tooltip={description}>{this.props.item.Name}</div>
           </div>
-        </td>
+        </div>
       )
     }
   }

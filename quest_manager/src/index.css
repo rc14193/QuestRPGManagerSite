@@ -97,6 +97,7 @@ img {
 .attributeVals{
   text-align: center !important;
   text-decoration: none;
+  overflow-wrap: break-word !important;
 }
 
 .spanVals{
@@ -109,7 +110,9 @@ img {
 }
 
 .title-text{
-  font-size: 2.5vw;
+  font-size: min(2vw,50px);
+  padding-bottom: 30px;
+  padding-top: 0px;
 }
 
 .navbar-icons{
@@ -279,6 +282,8 @@ img {
   float: left !important;
   margin-top: -25px !important;
   padding-right: 100px !important;
+  overflow: hidden !important;
+  height: 100px;
 }
 
 .rollRowStyle{
@@ -289,6 +294,7 @@ img {
 
 .editSwitch{
   margin-left:55px !important;
+  cursor:'pointer' !important;
 }
 
 @media only screen and (max-width: 800px) {
@@ -330,19 +336,19 @@ img {
   overflow-y: auto !important;
   max-height: 400px;
   margin-bottom: 50px !important;
-  width: 380px;
+  width: 370px;
+  align-content: center;
+  overflow-wrap: break-word !important;
 }
 
 .table-container-edit{
   overflow-y: auto !important;
+  overflow-x: hidden !important;
   max-height: 150px;
   margin-bottom: 50px !important;
   width: 370px;
-}
-
-tbody{
-
   align-content: center;
+  overflow-wrap: break-word !important;
 }
 
 /* width */

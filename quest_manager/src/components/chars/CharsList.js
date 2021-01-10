@@ -47,8 +47,8 @@ render(){
             return(
                     <div key={chars.id} className={boxStyle+" col card grey darken-4 charCards charCol"}>
                         <div>
-                            <CharDetails char={chars} quest_id={this.props.id} editMode={this.props.editMode}/>
-                            <CharInfTabs char={chars} editMode={this.props.editMode}/>
+                            <CharDetails char={chars} quest_id={this.props.id} {...this.props}/>
+                            <CharInfTabs char={chars} {...this.props}/>
                         </div>
                     </div>
                     )
@@ -66,7 +66,8 @@ render(){
 const mapStateToProps = (state) => {
     return{
         characters: state.firestore.ordered,
-        auth: state.firebase.auth
+        auth: state.firebase.auth,
+        mode:state.status.editMode
     }
 }
 

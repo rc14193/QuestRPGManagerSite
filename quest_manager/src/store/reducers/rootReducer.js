@@ -4,13 +4,15 @@ import { combineReducers } from 'redux'
 import { firestoreReducer } from 'redux-firestore'
 import { firebaseReducer } from 'react-redux-firebase'
 import charReducer from './charReducer'
+import statusReducer from './statusReducer'
 
 const rootReducer = combineReducers({
     auth: authReducer,
     quest: questReducer,
     firestore: firestoreReducer,
     firebase: firebaseReducer,
-    char: charReducer
+    char: charReducer,
+    status: statusReducer
 });
 
 export default rootReducer

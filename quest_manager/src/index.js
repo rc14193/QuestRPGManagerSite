@@ -22,7 +22,6 @@ function AuthIsLoaded({ children }) {
       return children
 }
 
-
 const store = createStore(
   rootReducer,
   compose(

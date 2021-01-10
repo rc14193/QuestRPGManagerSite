@@ -7,6 +7,7 @@ import CharList from '../chars/CharsList'
 import {updateQuestTitle} from '../../store/actions/updateQuestTitle'
 import {createCharacter} from '../../store/actions/createCharacter'
 import RollingDiceInfo from '../layout/RollingDiceInfo'
+import {updateMode} from '../../store/actions/updateMode'
 
 class QuestDetails extends React.Component{
 
@@ -14,17 +15,7 @@ state = {editMode: false, quest_title: ""}
 
 
       handleClick = (e) => {
-
-        if (this.state.editMode === false){
-            this.setState({
-                editMode: true
-            })
-        }
-        else{
-            this.setState({
-                editMode:false
-            })
-        }
+        this.props.updateMode(this.props.mode)
         }
 
         handleChange = (e) => {
@@ -55,19 +46,16 @@ state = {editMode: false, quest_title: ""}
     id = this.props.match.params.id;
 
     render(){
-    //console.log(this.props)
+    //console.log(this.state)
     if(!this.props.auth.uid){
             return <Redirect to='/' />
     }
 
-
-    if(this.state.editMode === true){
-
+    if(this.props.mode === true){
         if(this.props.quest){
-            //console.log(this.props)
             return (
                 <div>
-                    <RollingDiceInfo handleClick={this.handleClick}/>
+                    <RollingDiceInfo handleClick={this.handleClick.bind(this)}/>
                     <div className="container section project-details">
                         <div className="card z-depth-0">
                             <div className="card content grey darken-4 quest-title">
@@ -83,7 +71,7 @@ state = {editMode: false, quest_title: ""}
                     <a href={'/quest/'+this.props.id+'/join'} style={{float: "right"}} onClick={this.handleLink}>
                             <button className="btn grey darken-4 z-depth-0">Add Players</button>
                         </a>
-                    <CharList chars={this.props.chars} editMode={this.state.editMode} id={this.props.id}/>
+                    <CharList chars={this.props.chars} {...this.props} id={this.props.id}/>
                 </div>
             )
         }
@@ -96,12 +84,12 @@ state = {editMode: false, quest_title: ""}
         }
 
     }
-    else if(this.state.editMode === false){
+    else if(this.props.mode === false){
         if(this.props.quest){
             //console.log(this.props)
             return (
                 <div> 
-                    <RollingDiceInfo handleClick={this.handleClick}/>
+                    <RollingDiceInfo handleClick={this.handleClick.bind(this)}/>
                     <div className="container section project-details">
                         <div className="card z-depth-0">
                             <div className="card content grey darken-4 quest-title">
@@ -135,20 +123,20 @@ const mapStateToProps = (state,ownProps) => {
     const id = ownProps.match.params.id
     const quests = state.firestore.data.quests
     const quest = quests ? quests[id] : null
-    //console.log(state)
-    //console.log(ownProps)
     return {
         quest: quest,
         auth: state.firebase.auth,
         chars: state.char,
-        id:ownProps.match.params.id
+        id:ownProps.match.params.id,
+        mode:state.status.editMode
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
         updateQuestTitle: (quest,newName) => dispatch(updateQuestTitle(quest,newName)),
-        createCharacter: (state) => dispatch(createCharacter(state))
+        createCharacter: (state) => dispatch(createCharacter(state)),
+        updateMode: (mode) => dispatch(updateMode(mode))
     }
 }
 
